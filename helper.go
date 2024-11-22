@@ -11,3 +11,12 @@ func IsEqualPath(p1 string, p2 string) bool {
 	}
 	return p1[:lenp1] == p2[:lenp2]
 }
+
+func Contains[T comparable](arr []T, el T) bool {
+	for _, it := range arr {
+		if it == el {
+			return true
+		}
+	}
+	return false
+}
