@@ -19,7 +19,7 @@ type Route struct {
 	methods []string
 }
 
-/* type CHandler struct {
+/* type CustomHandler struct {
 	http.Handler
 } */
 
@@ -67,10 +67,8 @@ func (router *Router) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 	if PathWasFound {
-		//fmt.Println("path was found but not method")
 		router.MethodNotAllowedHandler.ServeHTTP(w, r)
 		return
 	}
-	//fmt.Println("not found handler")
 	router.NotFoundHandler.ServeHTTP(w, r)
 }
